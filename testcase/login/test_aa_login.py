@@ -1,4 +1,6 @@
 import unittest
+import sys
+sys.path.append("../../")
 from common.base_api import httpmethod
 import requests
 import json
