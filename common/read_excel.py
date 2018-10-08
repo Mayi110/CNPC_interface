@@ -1,4 +1,5 @@
 import os
+import xlrd
 from xlrd import open_workbook
 
 def readxlrd(sheet,row,col):
