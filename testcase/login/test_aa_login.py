@@ -1,10 +1,12 @@
 import unittest
+import os
 import sys
 sys.path.append("../../")
 from common.base_api import httpmethod
 import requests
 import json
 import ast
+import logging
 
 
 
@@ -37,8 +39,24 @@ class Login(unittest.TestCase):
         try:
             self.assertIn(rt_text['msg'],'登录成功')
             print("‘正确登录接口’测试成功")
+            #logging.warning("此用例测试通过")
+            #logging.basicConfig(filename=os.path.join(os.getcwd(),'log.txt'),level=logging.DEBUG)
+            #logging.info("tongguo")
+            #增加一个headler用于输出日志到控制台
+            logger = logging.getLogger()
+            logger.setLevel(logging.DEBUG)
+            s_headler = logging.StreamHandler()
+            s_headler.setLevel(logging.INFO)
+            logger.addHandler(s_headler)
+
+            logger.debug("this is debug test")
+            logger.info("this is info test")
+            logger.warning("this is warnning test")
+            logger.error("this is error test")
+            logger.critical("this is critical test")
         except:
             print("‘正确登录接口’测试失败")
+            logging.error("此接口用例测试不通过")
 
     def test_101_login(self):
         """
