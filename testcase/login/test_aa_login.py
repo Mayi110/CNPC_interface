@@ -2,6 +2,7 @@ import unittest
 import os
 import sys
 sys.path.append("D:\tomcat-32bit\apache-tomcat-7.0.90\webapps\Jenkins\workspace\CNPC_interface")
+sys.path.append("../..")
 from common.base_api import httpmethod
 import requests
 import json
