@@ -7,6 +7,8 @@ import requests
 import json
 import ast
 import logging
+import logging.handlers
+import datetime
 
 
 
@@ -45,9 +47,19 @@ class Login(unittest.TestCase):
             #增加一个headler用于输出日志到控制台
             logger = logging.getLogger()
             logger.setLevel(logging.DEBUG)
-            s_headler = logging.StreamHandler()
-            s_headler.setLevel(logging.INFO)
-            logger.addHandler(s_headler)
+            s_handler = logging.StreamHandler()
+            s_handler.setLevel(logging.INFO)
+            logger.addHandler(s_handler)
+            #增加一个headler用于输出日志到指定文件
+            file_name = os.path.join(os.getcwd(),'log.txt')
+            #实例化一个处理器headler
+            rf_handler = logging.handlers.TimedRotatingFileHandler(file_name, when='midnight', interval=1,
+                                                                   backupCount=7, atTime=datetime.time(0, 0, 0, 0))
+            #为处理器设置打印日志的时间格式
+            rf_handler.setFormatter(logging.Formatter("%(asctime)s - %(levelname)s - %(message)s"))
+            #给日志器logger添加rf_handler处理器
+            logger.addHandler(rf_handler)
+
 
             logger.debug("this is debug test")
             logger.info("this is info test")
