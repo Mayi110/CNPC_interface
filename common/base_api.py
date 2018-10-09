@@ -1,4 +1,6 @@
 import requests
+import sys
+sys.path.append("D:\\tomcat-32bit\\apache-tomcat-7.0.90\\webapps\\Jenkins\\workspace\\CNPC_interface")
 from common import read_excel
 from config import read_config
 
