@@ -1,4 +1,5 @@
 import sys
+sys.path.append("/var/lib/jenkins/workspace/CNPC_interface")
 sys.path.append("D:\\tomcat-32bit\\apache-tomcat-7.0.90\\webapps\\Jenkins\\workspace\\CNPC_interface")
 import smtplib
 import email
