@@ -11,7 +11,7 @@ from sendmail import sendmail
 def RunAllInterface():
     c_time = strftime('%Y-%m-%d %H-%M-%S',time.localtime())
     file_dir = os.path.dirname(os.path.dirname(__file__))
-    resultreport_dir = os.path.join(file_dir,'resultreport/')
+    resultreport_dir = os.path.join(file_dir,'resultreport')
     #定义报告的名称格式
     report_name = resultreport_dir + c_time + 'report.html'
     fp = open(report_name,'wb')
